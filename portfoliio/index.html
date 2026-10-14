@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf3e4">
+  <meta name="description" content="A portfolio for Your Name, an illustrator and visual storyteller. Explore character art, sketches, cartoons, and illustration projects.">
+  <title>Your Name — Illustrator & Visual Storyteller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #faf3e4;
+      --paper-deep: #f2e9d8;
+      --ink: #261d17;
+      --muted: #62564b;
+      --rust: #a63f29;
+      --rust-dark: #80301f;
+      --rust-action: #96381f;
+      --line: #d9cbb8;
+      --olive: #536648;
+      --white: #fffdf7;
+      --display: "Fraunces", Georgia, serif;
+      --body: "DM Sans", "Helvetica Neue", sans-serif;
+      --page: min(1200px, calc(100% - 80px));
+      font-family: var(--body);
+      background: var(--paper);
+      color: var(--ink);
+      scroll-behavior: smooth;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; background: var(--paper); }
+    a { color: inherit; }
+    button { font: inherit; }
+    button:focus-visible, a:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--rust);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+    ::selection { color: var(--white); background: var(--rust); }
+    .wrap { width: var(--page); margin-inline: auto; }
+    .site-header { position: relative; z-index: 2; border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .wordmark { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: -.035em; }
+    .wordmark-mark { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; color: var(--rust); font-family: var(--display); font-size: 19px; transform: rotate(-8deg); }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; font-size: 13px; color: var(--muted); transition: color .16s ease; }
+    .nav-links a:hover { color: var(--rust); }
+    .nav-links .nav-contact { padding-inline: 16px; border: 1px solid var(--ink); border-radius: 999px; color: var(--ink); }
+    .nav-links .nav-contact:hover { background: var(--ink); color: var(--paper); }
+    .hero { min-height: 626px; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 45px; padding-block: 62px 75px; }
+    .hero-copy { position: relative; padding-block: 7px; }
+    .hand-note { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 22px; color: var(--rust-dark); font-family: var(--display); font-size: 16px; font-style: italic; transform: rotate(-2deg); }
+    .hand-note svg { width: 20px; height: 20px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 650px; margin-bottom: 21px; font-family: var(--display); font-size: clamp(58px, 7.4vw, 94px); line-height: .98; letter-spacing: -.065em; font-weight: 400; }
+    h1 .accent { color: var(--rust); font-style: italic; }
+    .hero-intro { max-width: 405px; margin-bottom: 27px; color: var(--muted); font-size: 16px; line-height: 1.75; }
+    .hero-links { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+    .button-link { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 19px; border: 1px solid var(--ink); border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600; transition: background .17s ease, color .17s ease, transform .17s ease; }
+    .button-link:hover { transform: translateY(-2px); }
+    .button-link.filled { border-color: var(--rust-action); background: var(--rust-action); color: var(--white); }
+    .button-link.filled:hover { border-color: var(--rust-dark); background: var(--rust-dark); }
+    .button-link.quiet:hover { background: var(--ink); color: var(--paper); }
+    .hero-art { position: relative; min-height: 430px; display: grid; align-items: center; }
+    .hero-art::before { position: absolute; inset: 13px 10px 0 13px; border: 1px solid var(--ink); content: ""; transform: rotate(2deg); }
+    .hero-art-frame { position: relative; z-index: 1; overflow: hidden; width: 100%; border: 1px solid var(--ink); background: #e3ded0; transform: rotate(-1.3deg); }
+    .hero-art-frame img { display: block; width: 100%; height: auto; }
+    .hero-art-frame svg { display: none; }
+    .art-caption { position: absolute; z-index: 1; right: -16px; bottom: -18px; padding: 12px 17px; background: var(--paper); border: 1px solid var(--ink); font-family: var(--display); font-size: 14px; font-style: italic; transform: rotate(3deg); }
+    .section { padding-block: 87px; border-top: 1px solid var(--line); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 31px; }
+    .section-kicker { margin-bottom: 11px; color: var(--rust-dark); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+    .section-title { margin-bottom: 0; font-family: var(--display); font-size: clamp(39px, 5.5vw, 59px); line-height: 1.03; letter-spacing: -.05em; font-weight: 400; }
+    .section-deck { max-width: 340px; margin: 0 0 4px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 27px; }
+    .filter { min-height: 42px; padding: 0 15px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; font-size: 12px; transition: border-color .16s ease, background .16s ease, color .16s ease; }
+    .filter:hover { border-color: var(--rust); color: var(--rust-dark); }
+    .filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+    .work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 23px; }
+    .work-card[hidden] { display: none; }
+    .artwork-trigger { display: block; overflow: hidden; width: 100%; padding: 0; border: 1px solid var(--line); background: var(--paper-deep); cursor: zoom-in; text-align: left; }
+    .artwork-trigger svg, .artwork-trigger img { display: block; width: 100%; height: auto; transition: transform .25s ease-out; }
+    .artwork-trigger[data-work="5"] > svg { display: none; }
+    .artwork-trigger:hover svg, .artwork-trigger:hover img { transform: scale(1.025); }
+    .artwork-trigger:focus-visible { outline-offset: 5px; }
+    .work-meta { padding: 14px 2px 0; }
+    .work-overline { margin-bottom: 5px; color: var(--rust-dark); font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .work-title-line { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+    .work-title { margin: 0; font-family: var(--display); font-size: 23px; font-weight: 400; letter-spacing: -.03em; }
+    .work-type { flex: 0 0 auto; color: var(--muted); font-size: 11px; }
+    .work-description { max-width: 350px; margin: 8px 0 9px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .text-button { display: inline-flex; min-height: 40px; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: var(--rust-dark); cursor: pointer; font-weight: 600; font-size: 12px; }
+    .text-button span { transition: transform .16s ease; }
+    .text-button:hover span { transform: translateX(4px); }
+    .process-section { background: var(--paper-deep); border-block: 1px solid var(--line); }
+    .process-layout { display: grid; grid-template-columns: .88fr 1.12fr; gap: 80px; align-items: start; }
+    .process-intro { position: sticky; top: 30px; }
+    .process-intro .section-title { max-width: 410px; }
+    .process-intro > p:last-child { max-width: 385px; margin-top: 18px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .process-list { display: grid; }
+    .process-step { display: grid; grid-template-columns: 45px 1fr; gap: 20px; padding: 24px 0 27px; border-bottom: 1px solid var(--line); }
+    .process-step:first-child { padding-top: 0; }
+    .process-step:last-child { border: 0; }
+    .step-mark { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--rust); border-radius: 50%; color: var(--rust-dark); font-family: var(--display); font-style: italic; }
+    .process-step h3 { margin: 3px 0 8px; font-family: var(--display); font-size: 25px; font-weight: 400; }
+    .process-step p { max-width: 500px; margin-bottom: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .about-layout { display: grid; grid-template-columns: .92fr 1.08fr; gap: 76px; align-items: center; }
+    .about-art { position: relative; padding: 11px; border: 1px solid var(--ink); transform: rotate(-1.4deg); }
+    .about-art svg { display: block; width: 100%; height: auto; }
+    .about-sticker { position: absolute; right: -23px; bottom: 22px; width: 83px; height: 83px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--paper); color: var(--rust-dark); font-family: var(--display); font-size: 12px; font-style: italic; text-align: center; transform: rotate(9deg); }
+    .about-copy h2 { max-width: 530px; margin-bottom: 19px; font-family: var(--display); font-size: clamp(39px, 5vw, 58px); line-height: 1.06; font-weight: 400; letter-spacing: -.05em; }
+    .about-copy > p { max-width: 550px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .about-copy .small-note { margin-top: 22px; padding-top: 17px; border-top: 1px solid var(--line); color: var(--ink); font-family: var(--display); font-size: 17px; font-style: italic; }
+    .collab-banner { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; padding: 31px 34px; background: var(--ink); color: var(--paper); }
+    .collab-banner h2 { margin: 0 0 8px; font-family: var(--display); font-size: 35px; font-weight: 400; letter-spacing: -.035em; }
+    .collab-banner p { max-width: 470px; margin-bottom: 0; color: #eadfcd; font-size: 13px; line-height: 1.65; }
+    .collab-banner .button-link { border-color: var(--paper); color: var(--paper); white-space: nowrap; }
+    .collab-banner .button-link:hover { background: var(--paper); color: var(--ink); }
+    .site-footer { padding-block: 23px 28px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; color: var(--muted); font-size: 11px; }
+    .footer-inner p { margin: 0; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { min-height: 40px; display: inline-flex; align-items: center; text-decoration: none; }
+    .footer-links a:hover { color: var(--rust-dark); }
+    dialog { width: min(750px, calc(100% - 30px)); max-width: none; max-height: min(88vh, 850px); padding: 0; overflow: auto; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); box-shadow: 0 22px 90px #170f0b4d; }
+    dialog::backdrop { background: #241d16b5; backdrop-filter: blur(3px); }
+    .dialog-top { position: sticky; z-index: 1; top: 0; display: flex; justify-content: space-between; align-items: center; padding: 15px 18px; border-bottom: 1px solid var(--line); background: #faf3e4f2; }
+    .dialog-top p { margin: 0; color: var(--muted); font-size: 11px; }
+    .dialog-close { width: 42px; height: 42px; border: 1px solid var(--ink); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; font-size: 19px; }
+    .dialog-content { padding: 23px 28px 31px; }
+    .dialog-art { border: 1px solid var(--line); background: var(--paper-deep); }
+    .dialog-art svg, .dialog-art img { display: block; width: 100%; height: auto; }
+    .dialog-content h2 { margin: 23px 0 10px; font-family: var(--display); font-size: 44px; font-weight: 400; letter-spacing: -.04em; }
+    .dialog-description { max-width: 610px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .detail-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 25px; margin-top: 20px; padding-top: 19px; border-top: 1px solid var(--line); }
+    .detail-grid h3 { margin: 0 0 6px; color: var(--rust-dark); font-size: 10px; letter-spacing: .09em; text-transform: uppercase; }
+    .detail-grid p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (min-width: 1440px) { :root { --page: min(1200px, calc(100% - 120px)); } }
+    @media (max-width: 900px) {
+      :root { --page: calc(100% - 48px); }
+      .hero { min-height: 545px; gap: 30px; }
+      h1 { font-size: clamp(59px, 9vw, 79px); }
+      .hero-art { min-height: 360px; }
+      .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 20px; }
+      .process-layout, .about-layout { gap: 44px; }
+      .process-layout { grid-template-columns: .9fr 1.1fr; }
+    }
+    @media (max-width: 620px) {
+      :root { --page: calc(100% - 36px); }
+      .nav { min-height: 66px; gap: 9px; }
+      .wordmark { font-size: 13px; gap: 7px; white-space: nowrap; }
+      .wordmark-mark { width: 31px; height: 31px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 11px; }
+      .nav-links .nav-contact { padding-inline: 11px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 39px; padding-block: 55px 57px; }
+      .hero-copy { max-width: 540px; }
+      .hand-note { margin-bottom: 17px; }
+      h1 { max-width: 540px; font-size: clamp(59px, 14vw, 81px); }
+      .hero-intro { max-width: 440px; font-size: 15px; }
+      .hero-art { width: calc(100% - 10px); min-height: unset; margin-inline: auto 10px; }
+      .section { padding-block: 63px; }
+      .section-head { align-items: start; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+      .section-deck { max-width: 440px; }
+      .work-grid { grid-template-columns: 1fr; gap: 30px; }
+      .work-title { font-size: 25px; }
+      .artwork-trigger svg { max-height: 420px; }
+      .process-layout, .about-layout { grid-template-columns: 1fr; gap: 31px; }
+      .process-intro { position: static; }
+      .process-intro > p:last-child { margin-top: 13px; }
+      .process-step { gap: 12px; padding-block: 21px; }
+      .about-art { width: calc(100% - 12px); max-width: 490px; margin-inline: auto; }
+      .about-copy h2 { font-size: 45px; }
+      .collab-banner { grid-template-columns: 1fr; gap: 20px; padding: 25px 23px; }
+      .collab-banner h2 { font-size: 31px; }
+      .collab-banner .button-link { justify-self: start; }
+      .footer-inner { align-items: start; flex-direction: column; gap: 4px; }
+      .footer-links { gap: 18px; }
+      .dialog-content { padding: 17px 17px 25px; }
+      .dialog-content h2 { font-size: 36px; }
+    }
+    @media (max-width: 370px) {
+      :root { --page: calc(100% - 28px); }
+      .wordmark { font-size: 12px; }
+      .nav-links { gap: 6px; }
+      .nav-links a { font-size: 10px; }
+      .nav-links .nav-contact { padding-inline: 8px; }
+      .hero-links { align-items: stretch; flex-direction: column; }
+      .hero-links .button-link { align-self: flex-start; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="#home" aria-label="Your Name, home"><span class="wordmark-mark" aria-hidden="true">y.</span><span>Your Name · illustrator</span></a>
+      <div class="nav-links"><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a><a class="nav-contact" href="#contact">Say hello</a></div>
+    </nav>
+  </header>
+  <main id="home">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hand-note"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18c5-8 9-11 16-12M14 5l6 1-1 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Drawn with a little curiosity</p>
+        <h1 id="hero-title">Good stories<br>have <span class="accent">character.</span></h1>
+        <p class="hero-intro">I’m Your Name, an illustrator and visual storyteller making curious characters, expressive sketches, and little worlds worth getting lost in.</p>
+        <div class="hero-links"><a class="button-link filled" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a class="button-link quiet" href="#about">A little about me</a></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-art-frame">
+          <img src="artwork/orbit-keeper.svg" alt="The Orbit Keeper, an orange cat explorer in a blue-green coat, follows red-pawed flower planets through a lush moon garden.">
+          <svg viewBox="0 0 620 520" role="img" aria-labelledby="hero-art-title">
+            <title id="hero-art-title">A curious orange cat in a blue coat, exploring a garden full of large flowers</title>
+            <defs><pattern id="hero-dots" width="17" height="17" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#3f3328" opacity=".18"/></pattern></defs>
+            <rect width="620" height="520" fill="#c5d0b3"/><rect width="620" height="520" fill="url(#hero-dots)"/>
+            <path d="M0 346Q85 316 170 350T342 341t167 3q57-11 111-6v182H0z" fill="#718765"/>
+            <path d="M0 391q86-39 174 1t171-1q91-40 165-3t110 5v127H0z" fill="#566e51"/>
+            <path d="M78 353c15-62 21-113 14-180m0 128q-59-33-70-78 46 14 72 53m-7-49q32-70 70-75-3 43-65 93" fill="none" stroke="#344d38" stroke-width="8" stroke-linecap="round"/>
+            <path d="M80 198q-31-35-57 3-17 28 5 49 26 23 49-7" fill="#e1a4a0" stroke="#34261d" stroke-width="4"/><path d="M82 198q30-37 54-3 18 28-4 51-22 23-48-4" fill="#e1a4a0" stroke="#34261d" stroke-width="4"/><circle cx="81" cy="222" r="12" fill="#f5d272" stroke="#34261d" stroke-width="3"/>
+            <path d="M430 363c7-75 2-111-10-166m12 121q47-35 64-77-49 11-68 48m5-38q-13-78-50-93 0 50 46 107" fill="none" stroke="#344d38" stroke-width="7" stroke-linecap="round"/><circle cx="482" cy="287" r="18" fill="#c95e43" stroke="#34261d" stroke-width="3"/><circle cx="482" cy="287" r="5" fill="#e6bf71"/>
+            <ellipse cx="306" cy="420" rx="107" ry="22" fill="#3a513f" opacity=".42"/>
+            <path d="M263 226l-34-71 71 34m45 2 46-59-3 85" fill="#df9350" stroke="#34261d" stroke-width="5" stroke-linejoin="round"/><path d="M249 184l15 12-5-26m107 23 9-26-25 19" fill="#bd6250"/>
+            <path d="M244 254q10-64 69-68 68 1 78 69l-13 70q-11 55-65 55t-67-55z" fill="#e8a25b" stroke="#34261d" stroke-width="5"/>
+            <path d="M253 282q-19 5-19 24 2 18 23 12m122-36q22 8 20 25-2 18-21 13" fill="#e8a25b" stroke="#34261d" stroke-width="5"/>
+            <path d="M270 257q14-17 30 0m48 0q14-17 30 0" fill="none" stroke="#34261d" stroke-width="4" stroke-linecap="round"/><ellipse cx="289" cy="269" rx="4" ry="7" fill="#34261d"/><ellipse cx="342" cy="269" rx="4" ry="7" fill="#34261d"/><path d="M311 278l7 5 7-5m-7 5q-1 13-13 13m13-13q1 13 13 13" fill="none" stroke="#34261d" stroke-width="3" stroke-linecap="round"/>
+            <path d="M279 320q34 17 68 0l15 61-33 28-57-25z" fill="#7398a3" stroke="#34261d" stroke-width="5"/><path d="M300 328l8 17-14 11 20 24m22-52-7 18 14 9-20 28" fill="none" stroke="#d6e1cb" stroke-width="3" stroke-linecap="round"/>
+            <path d="M279 379q-15 24-12 42 2 14 25 11l27-14-4-28m32-10q22 21 18 41-5 13-26 7l-22-15" fill="#e8a25b" stroke="#34261d" stroke-width="5" stroke-linecap="round"/><path d="M270 428q-23 9-22 20 3 11 48 0m70-2q23 3 26 12-1 12-47 2" fill="#f2dac0" stroke="#34261d" stroke-width="4" stroke-linecap="round"/>
+            <path d="M382 365q31 7 37 34-2 16-25 8-16-8-17-23" fill="none" stroke="#34261d" stroke-width="5" stroke-linecap="round"/>
+            <path d="M210 123q3-20 19-21 13 0 14 17m173 19q10-20 23-14 11 5 5 19" fill="none" stroke="#a64a35" stroke-width="3" stroke-linecap="round"/><circle cx="185" cy="213" r="4" fill="#a64a35"/><circle cx="444" cy="186" r="5" fill="#a64a35"/><path d="M203 99q9-13 18 0-9 10-18 0zm216 76q11-13 19 0-10 10-19 0z" fill="#b34d37"/>
+            <path d="M285 366q25 11 50 0m-46 9q21 9 42 1" fill="none" stroke="#c77748" stroke-width="1.6" opacity=".65" stroke-linecap="round"/><path d="M283 328l11 9m37-8 11-10m-57 45-11 8m59-8 13 7" fill="none" stroke="#744a31" stroke-width="1.8" opacity=".7" stroke-linecap="round"/>
+            <path d="M275 247q-8-4-14 1m97 0q8-4 14 1M261 303l-8 8m116-8 9 9m-97 67-8 6m53-7 9 7" fill="none" stroke="#984d32" stroke-width="2" opacity=".72" stroke-linecap="round"/>
+            <path d="M64 323q13-16 29-9m-28 15q16-7 29 3m432-42q16-16 31-7m-31 14q12-2 23 7" fill="none" stroke="#e6cf9f" stroke-width="2.4" opacity=".8" stroke-linecap="round"/><path d="M52 239q-8-13-18-7m29 22q-11-8-21-3m494 12q-9-13-21-9" fill="none" stroke="#fff0d5" stroke-width="2" opacity=".74" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="art-caption">A day for small discoveries</span>
+      </div>
+    </section>
+
+    <section class="section wrap" id="work" aria-labelledby="work-title">
+      <div class="section-head"><div><p class="section-kicker">The good stuff</p><h2 class="section-title" id="work-title">Made by hand,<br>full of feeling.</h2></div><p class="section-deck">Character studies, story-led scenes, and sketchbook beginnings. Pick a drawing to see the thinking behind it.</p></div>
+      <div class="filters" role="group" aria-label="Filter illustration projects">
+        <button class="filter" type="button" aria-pressed="true" data-filter="all">Everything</button>
+        <button class="filter" type="button" aria-pressed="false" data-filter="character">Character art</button>
+        <button class="filter" type="button" aria-pressed="false" data-filter="editorial">Illustration</button>
+        <button class="filter" type="button" aria-pressed="false" data-filter="sketch">Sketchbook</button>
+      </div>
+      <div class="work-grid">
+        <article class="work-card" data-category="character">
+          <button class="artwork-trigger" type="button" data-work="0" aria-label="View Orbit Keeper character design"><svg viewBox="0 0 480 390" aria-hidden="true"><rect width="480" height="390" fill="#dfcdb0"/><path d="M0 315q82-39 167-4t162-3q76-34 151 0v82H0z" fill="#809278"/><circle cx="240" cy="185" r="116" fill="#f5e7c9" stroke="#37271d" stroke-width="3"/><path d="M97 174c49-95 177-129 281-49M110 216c59 77 169 94 261 32" fill="none" stroke="#b35439" stroke-width="3" stroke-dasharray="6 7"/><circle cx="151" cy="126" r="10" fill="#c3533b"/><circle cx="335" cy="247" r="7" fill="#637a5b"/><path d="M203 203l-21-60 54 31m39 0 44-40-10 71" fill="#e29b58" stroke="#33251b" stroke-width="4" stroke-linejoin="round"/><path d="M187 199q11-43 51-42 42-1 55 42l-8 51q-7 36-45 37-37 1-47-34z" fill="#edac67" stroke="#33251b" stroke-width="4"/><path d="M202 203q11-10 21 0m35 0q10-10 20 0" fill="none" stroke="#33251b" stroke-width="3" stroke-linecap="round"/><circle cx="213" cy="211" r="3"/><circle cx="268" cy="211" r="3"/><path d="M235 217l5 4 5-4m-5 4q0 11-10 12m10-12q0 11 11 12" fill="none" stroke="#33251b" stroke-width="2.5" stroke-linecap="round"/><path d="M206 237q28 14 54 0l9 46-28 26-43-26z" fill="#6d91a0" stroke="#33251b" stroke-width="4"/><path d="M223 246l26 28m-5-27-21 25" stroke="#f3e7cf" stroke-width="2.5"/><path d="M199 284q-30 27-4 37 17 5 39-16m34-20q30 24 8 38-14 7-35-12" fill="#edac67" stroke="#33251b" stroke-width="4" stroke-linecap="round"/><path d="M125 79q10-27 30-24m183 18q8-16 26-11" fill="none" stroke="#a14b37" stroke-width="3" stroke-linecap="round"/><path d="M80 85v14m-7-7h14m294 182v14m-7-7h14" stroke="#a14b37" stroke-width="2"/><path d="M202 226q-3 4-8 3m84 2q4 4 9 1m-82-48q8-7 17-4m53 0q7-6 15-2" fill="none" stroke="#a14b37" stroke-width="1.6" opacity=".75" stroke-linecap="round"/><path d="M209 251q7-4 13-1m31 0q8-5 14-1m-46 42q7 8 16 9m18-4q9-6 16-4" fill="none" stroke="#ac6b43" stroke-width="1.8" opacity=".7" stroke-linecap="round"/><path d="M192 242l-9 2m107-1 9 1" fill="none" stroke="#33251b" stroke-width="1.8" stroke-linecap="round"/><path d="M177 266l-7 6m89-2 6 5" stroke="#fff5e4" stroke-width="2" opacity=".8" stroke-linecap="round"/></svg></button>
+          <div class="work-meta"><p class="work-overline">Character design · colour & line</p><div class="work-title-line"><h3 class="work-title">The Orbit Keeper</h3><span class="work-type">A small wonder</span></div><p class="work-description">A curious cat follows the planets in a jacket with room for every discovery.</p><button class="text-button" type="button" data-work="0">Explore the character <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="work-card" data-category="editorial">
+          <button class="artwork-trigger" type="button" data-work="1" aria-label="View Little Weather editorial illustration"><svg viewBox="0 0 480 390" aria-hidden="true"><rect width="480" height="390" fill="#d1ded5"/><path d="M0 320q82-57 159-5t163-13q72-33 158 3v85H0z" fill="#859478"/><path d="M67 205q-15-55 25-73 23-38 69-13 41 13 34 56 32 25 3 53H95q-26-4-28-23z" fill="#f6f0e3" stroke="#35291f" stroke-width="3"/><circle cx="130" cy="200" r="4" fill="#35291f"/><circle cx="156" cy="200" r="4" fill="#35291f"/><path d="M135 212q10 9 20 0" fill="none" stroke="#35291f" stroke-width="2.5" stroke-linecap="round"/><path d="M135 226v45m0-23-29-16m29 16 27-22" stroke="#35291f" stroke-width="3" stroke-linecap="round"/><path d="M249 176q-14-41 21-57 26-23 50 1 30 18 10 50 29 23 2 44h-69q-30-11-14-38z" fill="#f6f0e3" stroke="#35291f" stroke-width="3"/><circle cx="278" cy="179" r="4" fill="#35291f"/><circle cx="302" cy="179" r="4" fill="#35291f"/><path d="M279 192q10 8 19 0" fill="none" stroke="#35291f" stroke-width="2.5" stroke-linecap="round"/><path d="M291 213v54m0-31 27-18m-27 21-28 11" stroke="#35291f" stroke-width="3" stroke-linecap="round"/><path d="M96 269v41m-10 0h22m173-46v46m-10 0h21" stroke="#35291f" stroke-width="3" stroke-linecap="round"/><path d="M353 88q17 4 23 19m-9-10q25-2 32 16m-367 24q15 8 17 22" fill="none" stroke="#b64d38" stroke-width="3" stroke-linecap="round"/><path d="M373 188q10 3 0 17-10-14 0-17zm-292 29q11 4 0 18-9-14 0-18zm156-122q11 4 0 18-9-14 0-18z" fill="#ce8c47"/></svg></button>
+          <div class="work-meta"><p class="work-overline">Editorial illustration · visual metaphor</p><div class="work-title-line"><h3 class="work-title">Little Weather</h3><span class="work-type">An inside feeling</span></div><p class="work-description">Two companions discover you can share the clouds, and the sunshine, too.</p><button class="text-button" type="button" data-work="1">Explore the illustration <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="work-card" data-category="sketch">
+          <button class="artwork-trigger" type="button" data-work="2" aria-label="View the Sunday Sky colour and sketch study"><svg viewBox="0 0 480 390" aria-hidden="true"><rect width="480" height="390" fill="#e7d4b9"/><path d="M240 41c-77 0-126 46-126 112 0 38 25 67 62 79l-12 87 79-24 76 20-12-82c38-18 60-49 60-88 0-66-47-104-127-104z" fill="#edaa70" stroke="#36281e" stroke-width="4" stroke-linejoin="round"/><path d="M190 70l-32-42 65 22m57 3 42-39-12 62" fill="#d87550" stroke="#36281e" stroke-width="4" stroke-linejoin="round"/><path d="M176 150q19-22 42 0m46 0q21-22 42 0" fill="none" stroke="#36281e" stroke-width="4" stroke-linecap="round"/><ellipse cx="196" cy="163" rx="5" ry="8" fill="#36281e"/><ellipse cx="280" cy="163" rx="5" ry="8" fill="#36281e"/><path d="M228 177l11 7 11-7m-11 7q-2 16-19 19m19-19q2 16 19 19" fill="none" stroke="#36281e" stroke-width="3" stroke-linecap="round"/><path d="M196 222q39 22 76 0" fill="none" stroke="#aa4734" stroke-width="3" stroke-linecap="round"/><path d="M103 83q20-31 42-20m232 22q9-27 27-21M96 263q17 8 27 24m224-224q20-12 33 5" fill="none" stroke="#695344" stroke-width="2.5" stroke-dasharray="5 7"/><path d="M70 120q10 3 0 17-8-12 0-17zm342 119q10 3 0 17-8-12 0-17zM89 311q8-7 15 2-9 9-15-2z" fill="#627b60"/><path d="M346 298l7-16 6 16 17 6-17 6-6 17-7-17-16-6z" fill="#bd563d"/></svg></button>
+          <div class="work-meta"><p class="work-overline">Sketchbook · expression study</p><div class="work-title-line"><h3 class="work-title">Sunday Sky</h3><span class="work-type">Ink & colour test</span></div><p class="work-description">A page of face studies about that soft, slow feeling of a day off.</p><button class="text-button" type="button" data-work="2">Open the sketchbook <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="work-card" data-category="character">
+          <button class="artwork-trigger" type="button" data-work="3" aria-label="View the Odd Friends character collection"><svg viewBox="0 0 480 390" aria-hidden="true"><rect width="480" height="390" fill="#e6cdb5"/><path d="M0 324h480v66H0z" fill="#c49c78"/><path d="M43 88q24-46 85-38 46 6 47 49l-6 116q-9 42-64 44-58-1-64-46z" fill="#7892a0" stroke="#35271f" stroke-width="4"/><path d="M54 91q-22-41-40-4 4 35 49 44m109-40q36-36 42 0-4 26-38 35" fill="#7892a0" stroke="#35271f" stroke-width="4" stroke-linejoin="round"/><circle cx="89" cy="140" r="5"/><circle cx="132" cy="140" r="5"/><path d="M98 158q12 12 25 0" fill="none" stroke="#35271f" stroke-width="3" stroke-linecap="round"/><path d="M73 196q40 20 78 0v61l-34 26-45-26z" fill="#c4573d" stroke="#35271f" stroke-width="4"/><path d="M87 205l17 14-14 13 19 20m27-46-11 17 14 14-18 17" fill="none" stroke="#f3dfc0" stroke-width="3"/><path d="M220 164q-4-54 45-58 48 0 48 57v71q-2 48-47 49-45-3-46-49z" fill="#d7b75f" stroke="#35271f" stroke-width="4"/><path d="M228 114q-17-38 9-43 29 2 28 37m30 5q12-41 35-24 13 19-14 44" fill="#d7b75f" stroke="#35271f" stroke-width="4"/><ellipse cx="250" cy="172" rx="5" ry="8" fill="#35271f"/><ellipse cx="282" cy="172" rx="5" ry="8" fill="#35271f"/><path d="M258 190q9 10 18 0m-17 12q10 5 19 0" fill="none" stroke="#35271f" stroke-width="3" stroke-linecap="round"/><path d="M226 236h82l-10 50q-28 27-59 0z" fill="#a85864" stroke="#35271f" stroke-width="4"/><path d="M331 116q13-23 40-8l20 27v105q-20 25-49 5l-14-37z" fill="#86a175" stroke="#35271f" stroke-width="4"/><path d="M346 132q-19-33-4-41 21-6 24 36m18 10q26-22 36-5-4 21-37 27" fill="#86a175" stroke="#35271f" stroke-width="4"/><circle cx="350" cy="169" r="5"/><circle cx="373" cy="169" r="5"/><path d="M354 184q9 9 18 0" fill="none" stroke="#35271f" stroke-width="3" stroke-linecap="round"/><path d="M341 220q24 11 48 0v37q-24 19-48 0z" fill="#ece0c8" stroke="#35271f" stroke-width="4"/><path d="M81 310h52m83 0h53m89 0h50" stroke="#49362a" stroke-width="3" stroke-linecap="round"/></svg></button>
+          <div class="work-meta"><p class="work-overline">Cartooning · cast development</p><div class="work-title-line"><h3 class="work-title">Odd Friends Club</h3><span class="work-type">A character cast</span></div><p class="work-description">Three distinctly odd neighbours; each silhouette tells you who's about to get into trouble.</p><button class="text-button" type="button" data-work="3">Meet the whole cast <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="work-card" data-category="editorial">
+          <button class="artwork-trigger" type="button" data-work="4" aria-label="View Night Garden picture-book illustration"><svg viewBox="0 0 480 390" aria-hidden="true"><rect width="480" height="390" fill="#495d62"/><path d="M0 299q99-44 179 8 97-43 164-4t137-13v100H0z" fill="#344b42"/><circle cx="359" cy="69" r="41" fill="#ecd5a1"/><circle cx="372" cy="58" r="38" fill="#495d62"/><path d="M36 329q9-76 2-156m3 91q47-25 59-64-37 5-57 40m9 5q-8-49-41-58" fill="none" stroke="#8ea17a" stroke-width="7" stroke-linecap="round"/><path d="M411 326q-12-88-4-183m-2 100q-47-34-54-74 32 10 50 51m-9-11q4-46 32-64" fill="none" stroke="#8ea17a" stroke-width="7" stroke-linecap="round"/><path d="M171 221l-21-55 53 25m32-1 43-43-10 63" fill="#d78054" stroke="#2c2722" stroke-width="4" stroke-linejoin="round"/><path d="M157 220q7-40 45-40 43 1 48 42l-6 46q-9 35-42 34-40-1-44-34z" fill="#de915d" stroke="#2c2722" stroke-width="4"/><ellipse cx="188" cy="226" rx="4" ry="6" fill="#2c2722"/><ellipse cx="222" cy="226" rx="4" ry="6" fill="#2c2722"/><path d="M195 240l6 4 6-4m-6 4q-1 10-10 11m10-11q1 10 11 11" fill="none" stroke="#2c2722" stroke-width="2.5" stroke-linecap="round"/><path d="M169 264q32 17 66 0l11 41-31 27-50-21z" fill="#e4cb8a" stroke="#2c2722" stroke-width="4"/><path d="M174 299q-26 25-5 37 16 8 35-13m45-24q27 17 16 33-12 10-35-8" fill="#de915d" stroke="#2c2722" stroke-width="4" stroke-linecap="round"/><path d="M95 153q16-39 41 0-25 22-41 0zm225 3q17-39 42 0-25 21-42 0zM99 102q14-32 34 0-20 16-34 0z" fill="#db9660"/><path d="M117 210q5-26 21 0-16 15-21 0zm220 23q6-30 24-1-16 18-24 1zm-38-123q8-25 22-2-11 17-22 2z" fill="#c1a676"/><circle cx="315" cy="166" r="3" fill="#f7e2a8"/><circle cx="86" cy="246" r="3" fill="#f7e2a8"/><path d="M268 72l6-13 6 13 13 5-13 5-6 13-6-13-13-5z" fill="#f2e1b3"/></svg></button>
+          <div class="work-meta"><p class="work-overline">Picture-book illustration · atmosphere</p><div class="work-title-line"><h3 class="work-title">Night Garden</h3><span class="work-type">A quiet adventure</span></div><p class="work-description">A brave little cat finds the bright, unexpected life hidden after bedtime.</p><button class="text-button" type="button" data-work="4">Step into the scene <span aria-hidden="true">↗</span></button></div>
+        </article>
+        <article class="work-card" data-category="sketch">
+          <button class="artwork-trigger" type="button" data-work="5" aria-label="View the Paper People character thumbnails"><img src="artwork/field-notes.svg" alt="An illustrated sketchbook spread, from rough character thumbnails and expression studies to a finished cat explorer in a colorful coat."><svg viewBox="0 0 480 390" aria-hidden="true"><rect width="480" height="390" fill="#eee4d1"/><path d="M41 39h192v307H41z" fill="#fbf7ec" stroke="#aa9a82" stroke-width="2"/><path d="M249 39h190v307H249z" fill="#e6dbc8" stroke="#aa9a82" stroke-width="2"/><path d="M61 67h94m14 0h36M273 67h88m13 0h43" stroke="#a48b73" stroke-width="2"/><path d="M75 153q1-42 36-47 40 1 39 47l-5 33q-7 26-34 26-27-2-33-27z" fill="#d6a075" stroke="#4b3829" stroke-width="3"/><path d="M78 116q-17-29 1-37 21-2 30 26m30 8q19-32 33-21 12 20-17 35" fill="#d6a075" stroke="#4b3829" stroke-width="3"/><circle cx="98" cy="150" r="3"/><circle cx="129" cy="150" r="3"/><path d="M105 164q8 8 16 0m-45 28h74l-8 53-29 18-34-21z" fill="#8d9a80" stroke="#4b3829" stroke-width="3"/><path d="M110 260v42m-37 0h73" stroke="#4b3829" stroke-width="4" stroke-linecap="round"/><path d="M288 159q0-38 36-42 38 2 40 42v33q-3 30-39 30-35-2-37-32z" fill="#bf7456" stroke="#4b3829" stroke-width="3"/><path d="M292 121q-14-26 4-34 19-2 27 26m37 8q20-27 30-13 8 17-22 29" fill="#bf7456" stroke="#4b3829" stroke-width="3"/><circle cx="310" cy="158" r="3"/><circle cx="338" cy="158" r="3"/><path d="M316 173q8 8 16 0m-35 25h62l-8 43-23 19-28-20z" fill="#718c9b" stroke="#4b3829" stroke-width="3"/><path d="M326 259v38m-33 0h65" stroke="#4b3829" stroke-width="4" stroke-linecap="round"/><path d="M77 309q25-12 49 0m160 1q27-10 54 1" fill="none" stroke="#bb6e4d" stroke-width="2" stroke-dasharray="4 6"/><path d="M200 98q8-9 16 0m157 138q9 11 17 0" fill="none" stroke="#586f53" stroke-width="2" stroke-linecap="round"/><text x="61" y="328" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#624b38">shy, but trying</text><text x="269" y="328" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#624b38">acts tough · loves soup</text><path d="M91 158q-12-5-10-19m50-24q8-4 15 2m-34 50q-8 7-18 3m13 84q10 6 17 3m13-16q9-4 14-1m145-78q-7-7-13-3m52 20q7-7 15-2m-64 42q-8 6-14 1m48 35q-8 6-16 1m10 13q8 7 15 0" fill="none" stroke="#795438" stroke-width="1.7" opacity=".72" stroke-linecap="round"/><path d="M56 79l8-4m171 15 5 9m-23 190 8 4m107-178 7-4m69 102-7 7" stroke="#fffaf0" stroke-width="2" opacity=".75" stroke-linecap="round"/><path d="M44 45l13 7m-8 16 11-7m198-7 9 5m-15 20 9 7m158-26-11 8" fill="none" stroke="#9b7655" stroke-width="1.4" opacity=".65" stroke-linecap="round"/></svg></button>
+          <div class="work-meta"><p class="work-overline">Sketchbook · character exploration</p><div class="work-title-line"><h3 class="work-title">Paper People</h3><span class="work-type">Thumbnails to cast</span></div><p class="work-description">Quick shapes, scruffy silhouettes, and the tiny details that make a character stick.</p><button class="text-button" type="button" data-work="5">See how it starts <span aria-hidden="true">↗</span></button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section process-section" id="process" aria-labelledby="process-title">
+      <div class="process-layout wrap"><div class="process-intro"><p class="section-kicker">From first doodle to final</p><h2 class="section-title" id="process-title">A drawing should feel like it’s thinking.</h2><p>The fun is in the searching. I leave room for the wonky first idea, then draw toward the clearest, most characterful answer.</p></div>
+        <div class="process-list">
+          <article class="process-step"><span class="step-mark" aria-hidden="true">a</span><div><h3>Find the little story</h3><p>We start with the feeling, audience, and one clear thing the picture should say. A short brief leaves the characters plenty of room to surprise us.</p></div></article>
+          <article class="process-step"><span class="step-mark" aria-hidden="true">b</span><div><h3>Doodle until it clicks</h3><p>Loose thumbnails, silhouette passes, and expression tests come first. I try a few different shapes and poses before polishing anything.</p></div></article>
+          <article class="process-step"><span class="step-mark" aria-hidden="true">c</span><div><h3>Give it a voice</h3><p>Clear line, a considered palette, and the right small details make the final illustration feel warm, specific, and unmistakably itself.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="about" aria-labelledby="about-title">
+      <div class="about-layout"><div class="about-art"><svg viewBox="0 0 470 415" role="img" aria-labelledby="about-art-title"><title id="about-art-title">The illustrator's sketchbook, open to a page of friendly faces, flowers and pencil doodles</title><rect width="470" height="415" fill="#e5d9c7"/><path d="M71 64q92-18 164 5v278q-81-29-164-2z" fill="#fffaf0" stroke="#402e22" stroke-width="3"/><path d="M235 69q82-22 162-4v281q-86-20-162 1z" fill="#fbf5e7" stroke="#402e22" stroke-width="3"/><path d="M235 69v276" stroke="#b9aa94" stroke-width="3"/><path d="M95 115h104m-105 13h73m-74 12h91" stroke="#d9c8ae" stroke-width="2"/><path d="M111 208q4-38 39-36 38 1 41 38l-4 38q-7 26-39 25-33-1-37-29z" fill="#dfa066" stroke="#463124" stroke-width="3"/><path d="M119 181q-20-31-2-39 20-4 34 24m34 15q21-32 34-17 9 18-21 34" fill="#dfa066" stroke="#463124" stroke-width="3"/><circle cx="135" cy="216" r="3"/><circle cx="171" cy="216" r="3"/><path d="M141 229q8 8 16 0m-44 38h74" fill="none" stroke="#463124" stroke-width="3" stroke-linecap="round"/><circle cx="287" cy="149" r="32" fill="#7f9480" stroke="#463124" stroke-width="3"/><circle cx="278" cy="145" r="3"/><circle cx="297" cy="145" r="3"/><path d="M281 158q7 7 14 0" fill="none" stroke="#463124" stroke-width="2.5" stroke-linecap="round"/><path d="M349 181q10-33 39-8t-2 45q-20 15-37-4" fill="#c86b4c" stroke="#463124" stroke-width="3"/><circle cx="362" cy="194" r="3"/><circle cx="381" cy="195" r="3"/><path d="M366 204q6 8 13 0" fill="none" stroke="#463124" stroke-width="2.5" stroke-linecap="round"/><path d="M275 230q15-27 30 0-15 18-30 0zm58 57q13-30 28-1-15 18-28 1zm38-126q12-25 25-1-12 15-25 1z" fill="#d59550"/><path d="M101 300q20-11 41 1m28 8q16-10 29 1m69-11h97m-96 12h64m16 68q15-14 29 1" stroke="#a99477" stroke-width="2" stroke-linecap="round"/><path d="M407 314l4-11 5 11 11 4-11 5-5 11-4-11-11-5z" fill="#af4c36"/><path d="M48 72l17 24m-3-22-18 19" stroke="#a84d38" stroke-width="3" stroke-linecap="round"/><path d="M427 85l9 17-14-13 17-1-13 11" fill="none" stroke="#566f55" stroke-width="3" stroke-linecap="round"/></svg><span class="about-sticker">always<br>make a mess<br>first</span></div>
+        <div class="about-copy"><p class="section-kicker">A human with a pencil</p><h2 id="about-title">Hi, I’m Your Name.</h2><p>I’m an illustrator who loves drawing characters with a point of view: the one with too many pockets, the shy one peeking around the corner, the oddball everyone remembers.</p><p>My happy place is somewhere between a scruffy sketchbook page and a finished picture that still feels like a real person made it. I’m especially drawn to expressive cartooning, visual storytelling, and work that makes people look twice—and smile.</p><p class="small-note">Currently open to illustration, character design, and picture-book collaborations.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact" aria-labelledby="contact-title"><div class="collab-banner"><div><h2 id="contact-title">Have a story brewing?</h2><p>Tell me about the characters, the feeling, or the half-formed idea you can’t stop thinking about. I’d love to hear where it could go.</p></div><a class="button-link" href="mailto:hello@yourname.art?subject=Illustration%20project">Let’s make something <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+  <footer class="site-footer wrap"><div class="footer-inner"><p>© <span id="year"></span> Your Name. Drawn one line at a time.</p><div class="footer-links"><a href="#work">Selected work</a><a href="mailto:hello@yourname.art">Email me</a></div></div></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><p>In the sketchbook · illustration notes</p><form method="dialog"><button class="dialog-close" aria-label="Close project details">×</button></form></div><div class="dialog-content" id="dialog-content"></div></dialog>
+  <script>
+    const stories = [
+      { title: "The Orbit Keeper", label: "Character design · colour & line", brief: "Build a memorable young explorer whose design feels friendly before they say a word.", approach: "Started with quick ear and head-shape silhouettes, then tested three kinds of curious expression. The oversized jacket, planet-path seams, and borrowed-looking buttons help make the character feel like a tiny adventurer.", finish: "Warm ink, muted blue cloth, and a garden-green setting keep the scene gentle. The floating orbit and star-shaped marks give the pose a little forward motion.", skills: "Character silhouette · facial expression · colour illustration" },
+      { title: "Little Weather", label: "Editorial illustration · visual metaphor", brief: "Show the comfort of being understood without leaning on a literal conversation or an over-explained scene.", approach: "Two cloud-shaped companions share a walk through the same landscape. Their distance, posture, and mirrored paths do more storytelling than a caption could.", finish: "A quiet green landscape and paper-white figures keep the metaphor easy to read. Small warm accents suggest the good weather is beginning to come through.", skills: "Editorial concept · shape language · visual storytelling" },
+      { title: "Sunday Sky", label: "Sketchbook · expression study", brief: "Explore how much a character’s mood can change with small, simple shifts in the eyes and mouth.", approach: "Began as a page of loose head shapes, ear gestures, and sleepy expressions. The strongest pose got a quick colour pass while keeping the searching pencil marks visible.", finish: "A small, limited palette lets the expressions lead. Uneven lines and hand-drawn marks are part of the image, not cleanup waiting to happen.", skills: "Expression sheets · ink sketching · colour studies" },
+      { title: "Odd Friends Club", label: "Cartooning · cast development", brief: "Create three companions you can recognise at a glance, even as tiny figures in the background of a story.", approach: "Built the cast around three different silhouette rhythms: wide-and-worried, tall-and-springy, and upright-and-unimpressed. Each little costume hints at personality instead of explaining it.", finish: "Repeated eye shapes and an earthy palette tie the cast together while the body shapes keep them distinct. Small pose differences help the group feel like friends, not copies.", skills: "Cartoon design · silhouette language · ensemble character work" },
+      { title: "Night Garden", label: "Picture-book illustration · atmosphere", brief: "Make a nighttime garden feel like an invitation to explore rather than something to fear.", approach: "Used a low horizon and tall leafy silhouettes to give a small wandering character room to discover things. Firefly-like stars draw a gentle path through the picture.", finish: "Ink-dark greens, soft golden details, and warm character colour hold a calm nighttime mood without losing the cozy storybook feeling.", skills: "Picture-book scene · composition · narrative atmosphere" },
+      { title: "Paper People", label: "Sketchbook · character exploration", brief: "Find two character ideas through quick, useful drawing rather than polishing the first idea that comes along.", approach: "Started with an untidy page of small face and body thumbnails. Short notes—how they stand, what they avoid, what they love—helped give each rough sketch a point of view.", finish: "The thumbnail page keeps the construction and searching visible. It shows how a loose pose or scribbled eyebrow can turn into the memorable bit of a design.", skills: "Thumbnail sketches · character exploration · observational cartooning" }
+    ];
+    const dialog = document.getElementById("project-dialog");
+    const dialogContent = document.getElementById("dialog-content");
+    document.querySelectorAll("[data-work]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const index = Number(button.dataset.work);
+        const story = stories[index];
+        const artwork = document.querySelectorAll(".artwork-trigger")[index].querySelector("img, svg:not([hidden])").cloneNode(true);
+        artwork.removeAttribute("aria-hidden");
+        artwork.setAttribute("role", "img");
+        artwork.setAttribute("aria-label", `${story.title} illustration artwork`);
+        dialogContent.replaceChildren();
+        const figure = document.createElement("div");
+        figure.className = "dialog-art";
+        figure.append(artwork);
+        const title = document.createElement("h2");
+        title.id = "dialog-title";
+        title.textContent = story.title;
+        const label = document.createElement("p");
+        label.className = "work-overline";
+        label.textContent = story.label;
+        const description = document.createElement("p");
+        description.className = "dialog-description";
+        description.textContent = "A closer look at the choices behind the picture, from the first character idea to the last ink line.";
+        const details = document.createElement("div");
+        details.className = "detail-grid";
+        [["The brief", story.brief], ["Finding the idea", story.approach], ["Colour & finish", story.finish], ["On the page", story.skills]].forEach(([heading, copy]) => {
+          const section = document.createElement("section");
+          const subheading = document.createElement("h3");
+          subheading.textContent = heading;
+          const paragraph = document.createElement("p");
+          paragraph.textContent = copy;
+          section.append(subheading, paragraph);
+          details.append(section);
+        });
+        dialogContent.append(figure, label, title, description, details);
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && dialog.open) dialog.close();
+    });
+    document.querySelectorAll(".filter").forEach((filter) => {
+      filter.addEventListener("click", () => {
+        const category = filter.dataset.filter;
+        document.querySelectorAll(".filter").forEach((button) => button.setAttribute("aria-pressed", String(button === filter)));
+        document.querySelectorAll(".work-card").forEach((card) => {
+          card.hidden = category !== "all" && card.dataset.category !== category;
+        });
+      });
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
